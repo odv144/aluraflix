@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import styles from "./Cabecera.module.css";
 import logo from "./image 1.png";
 import { CabeceraLink } from "../CabeceraLink/CabeceraLink";
-import { Box, Flex, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex,  Image, Text } from "@chakra-ui/react";
 export const Cabecera = () => {
   return (
-    <Flex
+    <Flex as='header'
     w={"100%"}
     position={'relative'}
      zIndex={1}

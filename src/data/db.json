@@ -14,5 +14,37 @@
         "imagen":"https://picsum.photos/200/300",
         "video":"",
         "descripcion":"Preubas de descripcion"
+    },
+    {
+        "id": 3,
+        "titulo": "Pedro",
+        "categoria": "Diseño",
+        "imagen":"https://picsum.photos/200/300",
+        "video":"",
+        "descripcion":"Preubas de descripcion"
+    },
+    {
+        "id": 4,
+        "titulo": "Ramiro Doe",
+        "categoria": "PowerManager",
+        "imagen":"https://picsum.photos/200/300",
+        "video":"",
+        "descripcion":"Preubas de descripcion"
+    },
+    {
+        "id": 5,
+        "titulo": "Marian Martines",
+        "categoria": "Desarrollador Frontend",
+        "imagen":"https://picsum.photos/200/300",
+        "video":"",
+        "descripcion":"Preubas de descripcion"
+    },
+    {
+        "id": 6,
+        "titulo": "Martina Romanina Mani",
+        "categoria": "UX/UI",
+        "imagen":"https://picsum.photos/200/300",
+        "video":"",
+        "descripcion":"Preubas de descripcion"
     }
 ]

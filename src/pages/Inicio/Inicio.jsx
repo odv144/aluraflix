@@ -1,4 +1,4 @@
-import { Card } from "../../components/Card/Card"
+import {  CardContainer } from "../../components/Card/Card"
 
 
 import { BannerNew } from "../../components/Banner/BannerNew";
@@ -9,9 +9,9 @@ import {
 
 export const Inicio = () => {
   return (
-    <VStack align={"center"} justify={"center"}>
+    <VStack >
       <BannerNew img="home" color="#154580" />
-      <Card />
+      <CardContainer />
       
     </VStack>
   );

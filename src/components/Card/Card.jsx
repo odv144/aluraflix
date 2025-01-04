@@ -1,13 +1,16 @@
-import { CardBody, Flex, Image, Stack, Text, Wrap, WrapItem } from "@chakra-ui/react";
-import styles from "./Card.module.css";
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Flex, Image, Stack, Text, VStack, Wrap, WrapItem } from "@chakra-ui/react";
 import iconBorrar from "/img/borrar.png";
 import iconEditar from "/img/editar.png";
 import videos from "/src/data/db.json";
 
-export const Card = () => {
+export const CardContainer = () => {
 
   return (
-    <Flex w={"100%"} boxSizing={"border-box"} p={4}>
+    <VStack
+     as='section' 
+     w={"100%"}
+   
+     >
         <Text
           as="h1"
           textAlign="center"
@@ -17,12 +20,9 @@ export const Card = () => {
         >
           Un lugar para guardar tus videos favoritos
         </Text>
-        <Flex>
-          <Wrap>
-          {
-            videos.map((video) => {<Text>{video.titulo}</Text>})
-          }      
-                {/* {videos.map((video) => (
+        <Flex as='article'>
+          <Wrap justify={'center'} spacing={4}>
+                {videos.map((video) => (
               <WrapItem key={video.id}>
                 <Card>
                   <CardBody>
@@ -31,12 +31,20 @@ export const Card = () => {
                   <Stack>
                     <Text>{video.titulo}</Text>
                   </Stack>
-                  titulo={video.titulo}
+                 <CardFooter >
+                 <ButtonGroup spacing={4}>
+                  <Button variant={'solid'} colorScheme="red" >Eliminar </Button>
+                  <Button variant={'solid'} colorScheme="yellow" >Editar </Button>
+                 
+                 </ButtonGroup>
+                 
+                
+                 </CardFooter>
                 </Card>
               </WrapItem>
-            ))} */}
+            ))}
           </Wrap>
-        </Flex>
-      </Flex>
+          </Flex>
+      </VStack>
   );
 };
