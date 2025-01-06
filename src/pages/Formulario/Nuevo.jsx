@@ -11,69 +11,138 @@ import {
   Button,
   Text,
   Container,
+  Divider,
+  FormLabel,
+  FormHelperText,
+  Center,
+  Heading,
+  Select,
+  Flex,
+  VStack,
+  Wrap,
+  WrapItem,
+  Textarea,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
-import { CopyIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, CopyIcon } from "@chakra-ui/icons";
 
-export const Nuevo = () => {
+export const Nuevo = ({fondo='#333'}) => {
+  const flag = false;
+  const guardar=(e)=>{
+    e.preventDefault()
+    console.log(e.target.value);
+  }
   return (
-    <FormControl
-      m="15px"
-      backgroundColor="#262626"
-      opacity={1}
-      color="whiteAlpha.800"
+    <form onSubmit={guardar}>
+
+    
+    <Center
+      w="100%"
+      display="flex"
+      flexDirection="column"
+      bgColor={fondo}
+      p={6}
+      color={"white"}
+      letterSpacing={1}
     >
-      <Text fontWeight="bold" textAlign="center" fontSize="3xl">
-        NUEVO VIDEO
-      </Text>
-      <Text textAlign="center" fontWeight="bold" fontSize="sm">
+      <Heading>NUEVO VIDEO</Heading>
+      <Text
+        as="h2"
+        textAlign="center"
+        fontWeight="bold"
+        fontSize="sm"
+        display="flex"
+      >
         COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO
       </Text>
-      <FormErrorMessage>Error message</FormErrorMessage>
       <Container
-        opacity={1}
-        width="1240px"
+        as="container"
+        maxW="50%"
         m={5}
         p={5}
         display="flex"
         flexDirection="column"
         alignItems="stretch"
       >
-        <Text fontWeight="bold" fontSize="md" p={15} m={5}>
+        <Divider
+          borderColor="white"
+          height="1px"
+          backgroundColor="white"
+          border="1px "
+        />
+        <Text fontWeight="bold" fontSize="md" p={15}>
           Crear Tarjeta
         </Text>
-        <InputGroup m={5} p={15}>
-          <InputLeftAddon>Email</InputLeftAddon>
-          <Input />
-          <InputRightElement>
-            <CopyIcon name="email" />
-          </InputRightElement>
-        </InputGroup>
+        <Divider
+          borderColor="white"
+          height="1px"
+          backgroundColor="white"
+          border="1px "
+        />
+        <Wrap justify={"center"} spacing={6}>
+          <WrapItem>
+            <FormControl m="2px" p="5px" w="300px">
+              <FormLabel>Titulo</FormLabel>
+              <Input placeholder="Ingrese el titulo" />
+              {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+            </FormControl>
+          </WrapItem>
+          <WrapItem>
+            <FormControl m="2px" p="5px">
+              <FormLabel>Categoria</FormLabel>
+              <Menu>
+                <MenuButton as={Button} variant={'outline'} rightIcon={<ChevronDownIcon />}>
+                  Actions
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Download</MenuItem>
+                  <MenuItem>Create a Copy</MenuItem>
+                  <MenuItem>Mark as Draft</MenuItem>
+                  <MenuItem>Delete</MenuItem>
+                  <MenuItem>Attend a Workshop</MenuItem>
+                </MenuList>
+              </Menu>
+              {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+            </FormControl>
+          </WrapItem>
+          <WrapItem>
+            <FormControl m="2px" p="5px" w="500px">
+              <FormLabel>Imagen</FormLabel>
+              <Input placeholder="Url de la imagen" />
+              {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+            </FormControl>
+          </WrapItem>
+          <WrapItem>
+            <FormControl m="2px" p="5px" w="500px">
+              <FormLabel>Video</FormLabel>
+              <Input placeholder="Url del video a subir" />
+              {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+            </FormControl>
+          </WrapItem>
+          <WrapItem>
+            <FormControl m="2px" p="5px" w="500px">
+              <FormLabel>Descripcion</FormLabel>
+              <Textarea placeholder="Descripcion del video" />
+              {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+            </FormControl>
+          </WrapItem>
+        </Wrap>
+
         <FormControl
-          p={15}
-          m={5}
+          m="2px"
+          p="5px"
           display="flex"
-          justifyContent="space-between"
+          justifyContent="space-around"
           alignItems="center"
         >
-          <Button
-            variant="outline"
-            size="md"
-            backgroundColor="#202020"
-            color="whiteAlpha.800"
-            fontWeight="bold"
-          >
-            GUARDAR
-          </Button>
-          <Button
-            variant="outline"
-            size="md"
-            backgroundColor="#222222"
-            fontWeight="bold"
-          >
-            LIMIPIAR
-          </Button>
+          <Button color="green" type="submit">GUARDAR</Button>
+          <Button color="red.500">LIMIPIAR</Button>
         </FormControl>
       </Container>
-    </FormControl>
+    </Center>
+  </form>
   );
 };

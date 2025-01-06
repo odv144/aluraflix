@@ -1,10 +1,11 @@
+{"videos":
 [
     {
         "id": 1,
         "titulo": "John Doe",
         "categoria": "Desarrollador",
         "imagen":"https://picsum.photos/200/300",
-        "video":"",
+        "video":"https://www.youtube.com/embed/fiIbxweAIEM?si=gpRs5SVZ5cXtOm-b",
         "descripcion":"Preubas de descripcion"
     },
     {
@@ -12,7 +13,7 @@
         "titulo": "Omar Virili",
         "categoria": "Desarrollador",
         "imagen":"https://picsum.photos/200/300",
-        "video":"",
+        "video":"https://youtu.be/8x2US-Sz8KQ?si=-XEC_LmTSPbRMu0Y",
         "descripcion":"Preubas de descripcion"
     },
     {
@@ -48,3 +49,4 @@
         "descripcion":"Preubas de descripcion"
     }
 ]
+}
