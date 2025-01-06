@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ChakraProvider,
   FormControl,
@@ -30,11 +30,24 @@ import {
 import { ChevronDownIcon, CopyIcon } from "@chakra-ui/icons";
 
 export const Nuevo = ({fondo='#333'}) => {
+  const [titulo,setTitulo]=useState("");
+  const [categoria,setCategoria]=useState("");
+  const [imagen,setImagen]=useState("");
+  const [video,setVideo]=useState("");
+  const [comentario,setComentario]=useState("");
+
+  const [dataForm,setDataForm]=useState({});
+
+
   const flag = false;
+
   const guardar=(e)=>{
     e.preventDefault()
-    console.log(e.target.value);
+
+    setDataForm({titulo,categoria,imagen,video,comentario})
+    console.log(dataForm);
   }
+
   return (
     <form onSubmit={guardar}>
 
@@ -86,7 +99,11 @@ export const Nuevo = ({fondo='#333'}) => {
           <WrapItem>
             <FormControl m="2px" p="5px" w="300px">
               <FormLabel>Titulo</FormLabel>
-              <Input placeholder="Ingrese el titulo" />
+              <Input 
+              value={titulo}
+              onChange={(e)=>setTitulo(e.target.value)}
+              placeholder="Ingrese el titulo" 
+              />
               {flag && <FormErrorMessage>Error message</FormErrorMessage>}
             </FormControl>
           </WrapItem>
@@ -111,21 +128,30 @@ export const Nuevo = ({fondo='#333'}) => {
           <WrapItem>
             <FormControl m="2px" p="5px" w="500px">
               <FormLabel>Imagen</FormLabel>
-              <Input placeholder="Url de la imagen" />
+              <Input 
+              value={imagen}
+              onChange={(e)=>setImagen(e.target.value)}
+              placeholder="Url de la imagen" />
               {flag && <FormErrorMessage>Error message</FormErrorMessage>}
             </FormControl>
           </WrapItem>
           <WrapItem>
             <FormControl m="2px" p="5px" w="500px">
               <FormLabel>Video</FormLabel>
-              <Input placeholder="Url del video a subir" />
+              <Input 
+              value={video}
+              onChange={(e)=>setVideo(e.target.value)}
+              placeholder="Url del video a subir" />
               {flag && <FormErrorMessage>Error message</FormErrorMessage>}
             </FormControl>
           </WrapItem>
           <WrapItem>
             <FormControl m="2px" p="5px" w="500px">
               <FormLabel>Descripcion</FormLabel>
-              <Textarea placeholder="Descripcion del video" />
+              <Textarea 
+              value={comentario}
+              onChange={(e)=>setComentario(e.target.value)}
+              placeholder="Descripcion del video" />
               {flag && <FormErrorMessage>Error message</FormErrorMessage>}
             </FormControl>
           </WrapItem>
