@@ -9,7 +9,7 @@ const parametros = useParams()
   const [videos,setVideos]=useState([])
 
   useEffect(()=>{
-    fetch("https://my-json-server.typicode.com/odv144/alura-cinema-api/videos")
+    fetch("https://my-json-server.typicode.com/odv144/aluraflix/videos")
     .then(response=> response.json())
     .then(data=>{setVideos(data)})
   },[])
@@ -25,11 +25,11 @@ const parametros = useParams()
                 <iframe 
                 width="100%"
                  height="100%"
-                  src={video.url} 
+                  src={video.video} 
                   title="YouTube video player" 
-                  frameborder="0" 
+                 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin" 
+                 
                   allowfullscreen></iframe>
                 </Container>
             </Box>

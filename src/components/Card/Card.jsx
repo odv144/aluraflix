@@ -35,7 +35,7 @@ export const CardContainer = ({categoria,color}) => {
   const [videos,setVideos]=useState([])
 
   useEffect(()=>{
-    fetch("https://my-json-server.typicode.com/odv144/alura-cinema-api/videos")
+    fetch("https://my-json-server.typicode.com/odv144/aluraflix/videos")
     .then(response=> response.json())
     .then(data=>{setVideos(data)})
   },[])
