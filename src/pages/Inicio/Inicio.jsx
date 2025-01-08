@@ -23,26 +23,16 @@ export const Inicio = () => {
   return (
     <VStack boxSizing="border-box" gap={0}>
       <BannerNew img="home" color="#154580" />
-      {/* {videos
-        .filter(video => nombresCategorias.includes(video.categoria))
-        .map(video => (
-          <CardContainer key={video.id} categoria={video.categoria} color={video.color} />
-        ))}    */}
-
-      { 
-        
-        category.map((categoria) =>
-        videos.filter((video) => video.categoria === categoria.nombre).map((video) => (
-            <CardContainer
-              key={video.id}
-              categoria={video.categoria}
-              // color={categoria.color}
-            />
-          ))
-      
-      )
-     
-      }
+      {category.map((categoria) => (
+        <CardContainer
+          key={categoria.id}
+          categoria={categoria.nombre}
+          color={categoria.color}
+          videos={videos.filter(
+            (video) => video.categoria === categoria.nombre
+          )}
+        />
+      ))}
     </VStack>
   );
 };

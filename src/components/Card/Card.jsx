@@ -30,14 +30,14 @@ import { VideosContext } from "../../Context/VideosContext";
 
 
 
-export const CardContainer = ({categoria,color}) => {
+export const CardContainer = ({categoria,color,videos}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-
   const{state,deleteData}=useContext(VideosContext)
-  const {videos}=state;
+  // const {videos}=state;
   const [edit,setEdit]=useState();
  
-
+  const [r, g, b] = color.match(/\d+/g);
+  const fondo = `rgba(${r}, ${g}, ${b}, 0.3)`; // Alfa reducido a 0.5
 
   const modificacion=(video)=>{
     setEdit(video);
@@ -71,9 +71,10 @@ export const CardContainer = ({categoria,color}) => {
       </Modal>
       </form>
     {/* fin del modal */}
-
-    <Flex as="section" w={"100%"} px={4} pb={5} bgColor={"rgba(0,0,0,0.9)"}>
+    {(videos.length >0)&&
+    <Flex as="section" w={"100%"} px={4} pb={5} bgColor={fondo}>
       <Flex direction={'column'}>
+     
         <Badge
           alignSelf={"self-start"}
           color={"white"}
@@ -87,11 +88,12 @@ export const CardContainer = ({categoria,color}) => {
         >
           {categoria}
         </Badge>
+    
       
      
-      <Flex as="article">
+      <Flex as="article" justifyContent={'center'}>
         <Wrap justify={"center"} spacing={4}>
-          {videos.map((video) => (
+          { videos.map((video) => (
             <WrapItem key={video.id}>
               <Card h={'450px'}>
                 <Stack align={'center'} pt='5px'>
@@ -120,6 +122,7 @@ export const CardContainer = ({categoria,color}) => {
       </Flex>
       </Flex>
     </Flex>
+  }
     </>
   );
 };

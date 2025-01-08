@@ -1,30 +1,45 @@
 {
-  "categoria":[
+  "categoria": [
     {
-      "id":1,
-      "nombre":"Desarrollador",
-      "descripcion":"Persona que se dedica a la creación de software",
-      "imagen":"https://via.placeholder.com/150",
-      "created_at":"2022-01-01T00:00:00.000Z",
-      "color":"rgba(255, 186, 5, 1)"
+      "id": 1,
+      "nombre": "Desarrollador",
+      "descripcion": "Persona que se dedica a la creación de software",
+      "imagen": "https://via.placeholder.com/150",
+      "created_at": "2022-01-01T00:00:00.000Z",
+      "color": "rgba(255, 186, 5, 1)"
     },
     {
-      "id":2,
-      "nombre":"FRONTEND",
-      "descripcion":"Persona que se dedica a la creación de interface grafica",
-      "imagen":"https://via.placeholder.com/150",
-      "created_at":"2024-01-01T00:00:00.000Z",
-      "color":"rgba(0, 200, 111, 1)"
+      "id": 2,
+      "nombre": "FRONTEND",
+      "descripcion": "Persona que se dedica a la creación de interface grafica",
+      "imagen": "https://via.placeholder.com/150",
+      "created_at": "2024-01-01T00:00:00.000Z",
+      "color": "rgba(0, 200, 111, 1)"
     },
     {
-      "id":3,
-      "nombre":"Diseño",
-      "descripcion":"Persona que se dedica al diseño grafico",
-      "imagen":"https://via.placeholder.com/150",
-      "created_at":"2025-01-01T00:00:00.000Z",
-      "color":"rgba(120, 100, 211, 1)"
+      "id": 3,
+      "nombre": "Diseño",
+      "descripcion": "Persona que se dedica al diseño grafico",
+      "imagen": "https://via.placeholder.com/150",
+      "created_at": "2025-01-01T00:00:00.000Z",
+      "color": "rgba(120, 100, 211, 1)"
+    },
+    {
+      "id": 4,
+      "nombre": "Power Manager",
+      "descripcion": "Organizadores de los equipos de trabajo",
+      "imagen": "https://via.placeholder.com/150",
+      "created_at": "2025-01-01T00:00:00.000Z",
+      "color": "rgba(130, 250, 155, 1)"
+    },
+    {
+      "id": 4,
+      "nombre": "UX-UI",
+      "descripcion": "Organizadores de los equipos de trabajo",
+      "imagen": "https://via.placeholder.com/150",
+      "created_at": "2025-01-01T00:00:00.000Z",
+      "color": "rgba(235, 100, 130, 1)"
     }
-    
   ],
   "videos": [
     {
@@ -54,7 +69,7 @@
     {
       "id": "4",
       "titulo": "Ramiro Doe",
-      "categoria": "PowerManager",
+      "categoria": "Power Manager",
       "imagen": "https://picsum.photos/200/300",
       "video": "",
       "descripcion": "Preubas de descripcion"
@@ -68,9 +83,10 @@
     },
     {
       "titulo": "Martina Romanina Mani",
-      "categoria": "UX/UI",
+      "categoria": "UX-UI",
       "imagen": "https://imgs.search.brave.com/3TX2FXh9K6XVvAK1faSsVeU6Wh_y6I2Zf6MhQSU0abE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmxhY2FwaXRh/bG1kcC5jb20vMjAy/Mi8wNC95YW5pbmEt/bGF0b3JyZS1oYWJs/by1kZS1sYS1lc3Rh/ZmEtZGUtbGEtcXVl/LWZ1ZXJvbi12aWN0/aW1hcy1sYXMtYW1p/Z2FzLWRlLXN1LWhp/amEtbG9sYS0xMzQz/ODM5LTEwMjR4NTc2/LmpwZw",
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
+      "descripcion": "No se porque esta no tenia comentario",
       "id": "6"
     }
   ]
