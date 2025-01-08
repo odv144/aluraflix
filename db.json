@@ -1,52 +1,77 @@
-{"videos":
-[
+{
+  "categoria":[
     {
-        "id": 1,
-        "titulo": "John Doe",
-        "categoria": "Desarrollador",
-        "imagen":"https://picsum.photos/200/300",
-        "video":"https://www.youtube.com/embed/fiIbxweAIEM?si=gpRs5SVZ5cXtOm-b",
-        "descripcion":"Preubas de descripcion"
+      "id":1,
+      "nombre":"Desarrollador",
+      "descripcion":"Persona que se dedica a la creación de software",
+      "imagen":"https://via.placeholder.com/150",
+      "created_at":"2022-01-01T00:00:00.000Z",
+      "color":"rgba(255, 186, 5, 1)"
     },
     {
-        "id": 2,
-        "titulo": "Omar Virili",
-        "categoria": "Desarrollador",
-        "imagen":"https://picsum.photos/200/300",
-        "video":"https://youtu.be/8x2US-Sz8KQ?si=-XEC_LmTSPbRMu0Y",
-        "descripcion":"Preubas de descripcion"
+      "id":2,
+      "nombre":"FRONTEND",
+      "descripcion":"Persona que se dedica a la creación de interface grafica",
+      "imagen":"https://via.placeholder.com/150",
+      "created_at":"2024-01-01T00:00:00.000Z",
+      "color":"rgba(0, 200, 111, 1)"
     },
     {
-        "id": 3,
-        "titulo": "Pedro",
-        "categoria": "Diseño",
-        "imagen":"https://picsum.photos/200/300",
-        "video":"",
-        "descripcion":"Preubas de descripcion"
-    },
-    {
-        "id": 4,
-        "titulo": "Ramiro Doe",
-        "categoria": "PowerManager",
-        "imagen":"https://picsum.photos/200/300",
-        "video":"",
-        "descripcion":"Preubas de descripcion"
-    },
-    {
-        "id": 5,
-        "titulo": "Marian Martines",
-        "categoria": "Desarrollador Frontend",
-        "imagen":"https://picsum.photos/200/300",
-        "video":"",
-        "descripcion":"Preubas de descripcion"
-    },
-    {
-        "id": 6,
-        "titulo": "Martina Romanina Mani",
-        "categoria": "UX/UI",
-        "imagen":"https://picsum.photos/200/300",
-        "video":"",
-        "descripcion":"Preubas de descripcion"
+      "id":3,
+      "nombre":"Diseño",
+      "descripcion":"Persona que se dedica al diseño grafico",
+      "imagen":"https://via.placeholder.com/150",
+      "created_at":"2025-01-01T00:00:00.000Z",
+      "color":"rgba(120, 100, 211, 1)"
     }
-]
+    
+  ],
+  "videos": [
+    {
+      "titulo": "John Doe",
+      "categoria": "Desarrollador",
+      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
+      "video": "https://www.youtube.com/embed/fiIbxweAIEM?si=gpRs5SVZ5cXtOm-b",
+      "descripcion": "No se porque la descripion de esta foto no la toma",
+      "id": "1"
+    },
+    {
+      "titulo": "Omar Virili",
+      "categoria": "Desarrollador",
+      "imagen": "https://picsum.photos/200/300",
+      "video": "https://youtu.be/8x2US-Sz8KQ?si=-XEC_LmTSPbRMu0Y",
+      "descripcion": "al editar la descricpion con mucho texto al parecer te ambia el ando de4 la imagen",
+      "id": "2"
+    },
+    {
+      "titulo": "Pedro",
+      "categoria": "Diseño",
+      "imagen": "https://picsum.photos/200/300",
+      "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
+      "descripcion": "Usted si que esta aprendiendo un monto haciendo",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "titulo": "Ramiro Doe",
+      "categoria": "PowerManager",
+      "imagen": "https://picsum.photos/200/300",
+      "video": "",
+      "descripcion": "Preubas de descripcion"
+    },
+    {
+      "titulo": "Yanina Latorre",
+      "categoria": "Desarrollador Frontend",
+      "imagen": "https://imgs.search.brave.com/3Uls12tIHoi-xX3jogZAgcFJGs1W9wcwg8WTGKerP-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/djIvREdHWTVQSDYz/QkFVUEVWUjJIVzVS/V0RTSE0uanBnP3F1/YWxpdHk9NzUmc21h/cnQ9dHJ1ZSZhdXRo/PThlMzAyMDlhMzQ3/ZDhjMzk1NWFlMzI2/NTMxODQxYWI5Y2Fi/M2RkNDcxZTQyOTY5/M2EyZTIxYjU0ZmIz/MTkyYjAmd2lkdGg9/OTgwJmhlaWdodD02/NDA",
+      "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
+      "id": "5"
+    },
+    {
+      "titulo": "Martina Romanina Mani",
+      "categoria": "UX/UI",
+      "imagen": "https://imgs.search.brave.com/3TX2FXh9K6XVvAK1faSsVeU6Wh_y6I2Zf6MhQSU0abE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmxhY2FwaXRh/bG1kcC5jb20vMjAy/Mi8wNC95YW5pbmEt/bGF0b3JyZS1oYWJs/by1kZS1sYS1lc3Rh/ZmEtZGUtbGEtcXVl/LWZ1ZXJvbi12aWN0/aW1hcy1sYXMtYW1p/Z2FzLWRlLXN1LWhp/amEtbG9sYS0xMzQz/ODM5LTEwMjR4NTc2/LmpwZw",
+      "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
+      "id": "6"
+    }
+  ]
 }

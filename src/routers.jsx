@@ -8,25 +8,26 @@ import { VideoProvider } from "./Context/Videos.jsx";
 import { Box, Flex, VStack } from "@chakra-ui/react";
 import { Separador } from "./components/Separador/Separador.jsx";
 import { Player } from "./pages/Player/Player.jsx";
+import { VideosProvider } from "./Context/VideosProvider.jsx";
 
 export const AppRoutes = () => {
   return (
-    <Flex direction={'column'} >
-    <BrowserRouter>
-      <Cabecera  />
-      <Separador/>
-      <Container >
-        <VideoProvider>
-          <Routes>
-            <Route path="/" element={<Inicio />}></Route>
-            <Route path="/nuevo" element={<Nuevo/>}></Route>
-            <Route path="/:id" element={<Player/>}></Route>
-          </Routes>
-        </VideoProvider>
-      </Container>
-      
-      <Footer />
-    </BrowserRouter>
+    <Flex direction={"column"}>
+      <BrowserRouter>
+        <Cabecera />
+        <Separador />
+        <VideosProvider>
+          <Container>
+            <Routes>
+              <Route path="/" element={<Inicio />}></Route>
+              <Route path="/nuevo" element={<Nuevo />}></Route>
+              <Route path="/:id" element={<Player />}></Route>
+            </Routes>
+          </Container>
+        </VideosProvider>
+
+        <Footer />
+      </BrowserRouter>
     </Flex>
   );
 };

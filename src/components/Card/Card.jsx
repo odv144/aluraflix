@@ -25,25 +25,33 @@ import iconBorrar from "/img/borrar.png";
 import iconEditar from "/img/editar.png";
 // import videos from "/src/data/db.json";
 import {Nuevo} from "/src/pages/Formulario/Nuevo"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { VideosContext } from "../../Context/VideosContext";
 
 
 
 export const CardContainer = ({categoria,color}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const [videos,setVideos]=useState([])
+  const{state,deleteData}=useContext(VideosContext)
+  const {videos}=state;
+  const [edit,setEdit]=useState();
+ 
 
-  useEffect(()=>{
-    fetch("https://my-json-server.typicode.com/odv144/aluraflix/videos")
-    .then(response=> response.json())
-    .then(data=>{setVideos(data)})
-  },[])
 
-  const guardar=(e)=>{
-    e.preventDefault();
-    console.log(e.target.value)
+  const modificacion=(video)=>{
+    setEdit(video);
+    onOpen();
+
   }
+
+   const handleDelete = async (id) => {
+    try {
+      await deleteData('http://localhost:5000/videos', id);
+    } catch (error) {
+      console.error('Error al eliminar:', error);
+    }
+  };
   return (
     <>
     {/* inicio del modal */}
@@ -55,15 +63,10 @@ export const CardContainer = ({categoria,color}) => {
           <ModalCloseButton />
           <ModalBody >
 
-           <Nuevo fondo={"rgba(34, 113, 209, 1)"}></Nuevo>
+           <Nuevo fondo={"rgba(34, 113, 209, 1)"} dato={edit} cerrar={onClose}></Nuevo>
           </ModalBody>
 
-          <ModalFooter>
-            <Button variant={'alura'} mr={3} onClick={guardar}>
-              Guardar
-            </Button>
-            <Button variant='alura'>Cancelar</Button>
-          </ModalFooter>
+         
         </ModalContent>
       </Modal>
       </form>
@@ -90,19 +93,22 @@ export const CardContainer = ({categoria,color}) => {
         <Wrap justify={"center"} spacing={4}>
           {videos.map((video) => (
             <WrapItem key={video.id}>
-              <Card>
-                <CardBody>
-                  <Image src={video.imagen} alt={video.titulo} />
-                </CardBody>
-                <Stack>
+              <Card h={'450px'}>
+                <Stack align={'center'} pt='5px'>
                   <Text>{video.titulo}</Text>
                 </Stack>
+                <CardBody >
+                  <Image src={video.imagen} alt={video.titulo} h='250px'/>
+                </CardBody>
+                <Stack align={'center'}>
+                  <Text maxW='240px' px='5px'>{video.descripcion}</Text>
+                </Stack>
                 <CardFooter>
-                  <ButtonGroup spacing={4}>
-                    <Button variant={"solid"} colorScheme="red"onClick={()=>alert(video.id)} >
+                  <ButtonGroup justify={'space-around'}>
+                    <Button variant={"solid"} colorScheme="red"onClick={()=>handleDelete(video.id)} >
                       Eliminar{" "}
                     </Button>
-                    <Button variant={"solid"} colorScheme="yellow" onClick={onOpen}>
+                    <Button variant={"solid"} colorScheme="yellow"  onClick={()=>modificacion(video)}>
                       Editar{" "}
                     </Button>
                   </ButtonGroup>
