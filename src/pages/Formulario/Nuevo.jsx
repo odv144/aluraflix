@@ -1,24 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
 import {
-  ChakraProvider,
   FormControl,
   FormErrorMessage,
-  InputGroup,
-  InputLeftAddon,
   Input,
-  InputRightElement,
-  Icon,
   Button,
   Text,
   Container,
   Divider,
   FormLabel,
-  FormHelperText,
   Center,
   Heading,
-  Select,
-  Flex,
-  VStack,
   Wrap,
   WrapItem,
   Textarea,
@@ -31,10 +22,11 @@ import { ChevronDownIcon, CopyIcon } from "@chakra-ui/icons";
 import { VideosContext } from "../../Context/VideosContext";
 import { useNavigate } from "react-router-dom";
 
-export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
-   const { state, postData, updateData } = useContext(VideosContext);
-   const navigate = useNavigate();
+export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
+  const { state, category, postData, updateData } = useContext(VideosContext);
+  const navigate = useNavigate();
   //estado inicial del dataForm
+  
   const [formData, setFormData] = useState(
     dato === ""
       ? {
@@ -54,11 +46,13 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
   );
   //manejador para el cambio de estado
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (value) => {
+    
+    setFormData(prevData=>({
+      ...prevData,
+      ...value,
+      
+    }));
   };
 
   //manejador del envio del submint
@@ -66,7 +60,8 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
     e.preventDefault();
     if (dato === "") {
       try {
-        await postData("http://localhost:5000/videos/", formData);
+        await postData( formData);
+       
         setFormData({
           titulo: "",
           categoria: "",
@@ -77,16 +72,15 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
       } catch (error) {
         console.error("error al enviar:", error);
       }
+      navigate("/");
     } else {
       try {
-        await updateData("http://localhost:5000/videos", dato.id, formData);
+        await updateData(dato.id, formData);
       } catch (error) {
         console.error("error al enviar:", error);
       }
+      cerrar();
     }
-    cerrar()
-    navigate('/')
-
   };
 
   const flag = false;
@@ -113,7 +107,7 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
           COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO
         </Text>
         <Container
-          as="container"
+          
           maxW="50%"
           m={5}
           p={5}
@@ -142,7 +136,7 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
                 <FormLabel>Titulo</FormLabel>
                 <Input
                   value={formData.titulo}
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange({ titulo: e.target.value })}
                   placeholder="Ingrese el titulo"
                   name="titulo"
                 />
@@ -155,18 +149,22 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
                 <Menu>
                   <MenuButton
                     as={Button}
-                    name="categoria"
                     variant={"outline"}
                     rightIcon={<ChevronDownIcon />}
+                    name='categoria'
                   >
                     Actions
                   </MenuButton>
                   <MenuList>
-                    <MenuItem>Download</MenuItem>
-                    <MenuItem>Create a Copy</MenuItem>
-                    <MenuItem>Mark as Draft</MenuItem>
-                    <MenuItem>Delete</MenuItem>
-                    <MenuItem>Attend a Workshop</MenuItem>
+                    {category.map((cat) => (
+                      <MenuItem
+                        key={cat.id}
+                       onClick={()=>handleChange({ categoria: cat.nombre })}
+                        textTransform={'uppercase'}
+                      >
+                        {cat.nombre}
+                      </MenuItem>
+                    ))}
                   </MenuList>
                 </Menu>
                 {flag && <FormErrorMessage>Error message</FormErrorMessage>}
@@ -177,7 +175,7 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
                 <FormLabel>Imagen</FormLabel>
                 <Input
                   value={formData.imagen}
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange({ imagen: e.target.value })}
                   placeholder="Url de la imagen"
                   name="imagen"
                 />
@@ -189,7 +187,7 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
                 <FormLabel>Video</FormLabel>
                 <Input
                   value={formData.video}
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange({ video: e.target.value })}
                   placeholder="Url del video a subir"
                   name="video"
                 />
@@ -201,7 +199,7 @@ export const Nuevo = ({ fondo = "#333", dato = "" ,cerrar}) => {
                 <FormLabel>Descripcion</FormLabel>
                 <Textarea
                   value={formData.descripcion}
-                  onChange={handleChange}
+                  onChange={(e)=>handleChange({ descripcion: e.target.value })}
                   placeholder="Descripcion del video"
                   name="descripcion"
                 />

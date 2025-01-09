@@ -5,23 +5,37 @@ export const ButtonConfig = defineStyleConfig({
   baseStyle: {},
   // Variantes predefinidas
   variants: {
-    outline:{
-      color:'white',
-      fontWeight:300,
+    outline: {
+      textAlign: "center",
+      fontFamily: "Source Sans Pro",
+      fontSize: "20px",
+      fontStyle: "normal",
+      fontWeight: 900,
+      lineHeight: "24px" /* 120% */,
+      textTransform: "uppercase",
+      color: "white",
 
+      _hover: {
+        borderBottom: "4px solid  #2271D1",
+        background: " #262626",
+        boxShadow: "0px 5px 29px 0px rgba(34, 113, 209, 0.70)",
+        bg: "black",
+        border: "2px solid blue",
+        color: " #2271D1",
+      },
     },
-    alura:{
-      color:'blue.300',
-      bg:'black',
-      borderColor:'blue.300',
-      border:'2px solid',
+    alura: {
+      color: "blue.300",
+      bg: "black",
+      borderColor: "blue.300",
+      border: "2px solid",
     },
     custom: {
       textTransform: "uppercase",
       border: "1px solid white",
       borderRadius: "15px",
       color: "white",
-      letterSpacing:'0.3em',
+      letterSpacing: "0.3em",
       background: "black",
       _hover: {
         backgroundColor: "white",

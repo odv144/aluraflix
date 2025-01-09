@@ -1,36 +1,35 @@
 import { Box, Center, Container, Heading } from "@chakra-ui/react"
 import { BannerNew } from "../../components/Banner/BannerNew"
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { VideosContext } from "../../Context/VideosContext"
 
 export const Player=()=>{
 const parametros = useParams()
+const {state} =useContext(VideosContext)
 
-  const [videos,setVideos]=useState([])
+// const [videos,setVideos]=useState([])
+const {videos} = state;
 
-  useEffect(()=>{
-    fetch("https://my-json-server.typicode.com/odv144/aluraflix/videos")
-    .then(response=> response.json())
-    .then(data=>{setVideos(data)})
-  },[])
+const video=videos.find(video=>video.id===parametros.id)
 
-  const video=videos.find(video=>video.id===Number(parametros.id))
-  console.log(video)
+
     return(
-        <Center>
+        <Center >
         
-            <Box w="100%" h="100vh" bg="blue.500" color="#eee">
+            <Box  w='100%' bg="blue.500" color="#eee">
                 <Heading>Reproductor de Video</Heading>
-                <Container>
+                <Container w="80vw" h={"70vh"}>
                 <iframe 
-                width="100%"
-                 height="100%"
+                width="500px"
+                 height="480px"
                   src={video.video} 
-                  title="YouTube video player" 
-                 
+                  title={video.titulo} 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                 
-                  allowfullscreen></iframe>
+                  referrerPolicy="same-origin"                   
+                  allowfullscreen >
+
+                  </iframe>
                 </Container>
             </Box>
        

@@ -2,14 +2,15 @@ import { useContext, useEffect, useReducer, useState } from "react";
 import { VideosContext } from "./VideosContext";
 //token para usar b1d30cba-625f-4a6e-9b36-b467706e05ea
 
-
+// const urlBase='https://alura-cinema-api-five.vercel.app/videos';
+const urlBase='http://localhost:5000';
 // comienzo de reducer
 // Tipos de acciones
 const ACTIONS = {
   MAKE_REQUEST: 'MAKE_REQUEST',
   SUCCESS: 'SUCCESS',
   ERROR: 'ERROR',
-  SET_DATA: 'CONSULTA',
+  SET_DATA: 'SET_DATA',
   ADD_DATA: 'ADD_DATA',
   REMOVE_DATA: 'REMOVE_DATA',
   UPDATE_DATA:'UPDATE_DATA',
@@ -20,6 +21,7 @@ const initialState={
   loading: false,
   error: null,
   videos:[],
+  
 }
 // 2) acciones que ejecutaran en los eventos
 const reducer=(state,action)=>{
@@ -41,7 +43,7 @@ switch (action.type) {
       error: action.payload.error 
     };
     
-  case ACTIONS.CONSULTA:
+  case ACTIONS.SET_DATA:
     return { 
       ...state, 
       videos: action.payload
@@ -74,16 +76,15 @@ switch (action.type) {
 
 export const VideosProvider = ({ children }) => {
     
-    const url='https://alura-cinema-api-five.vercel.app/videos';
     const [state, dispatch] = useReducer(reducer, initialState);
 
     // Función para GET
-    const getData = async (url) => {
+    const getData = async () => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
       try {
-        const response = await fetch(url);
+        const response = await fetch(`${urlBase}/videos`);
         const data = await response.json();
-        dispatch({ type: ACTIONS.CONSULTA, payload:  data });
+        dispatch({ type: ACTIONS.SET_DATA, payload:  data });
         dispatch({ type: ACTIONS.SUCCESS });
       } catch (error) {
         dispatch({ type: ACTIONS.ERROR, payload: { error } });
@@ -91,12 +92,10 @@ export const VideosProvider = ({ children }) => {
     };
   
     // Función para POST
-    const postData = async (url, newData) => {
+    const postData = async ( newData) => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
-      
-      console.log("Datos recibidos:",newData)
-      try {
-        const response = await fetch(url, {
+       try {
+        const response = await fetch(`${urlBase}/videos`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -106,7 +105,8 @@ export const VideosProvider = ({ children }) => {
         });
         
         const data = await response.json();
-        dispatch({ type: ACTIONS.ADD_DATA, payload: { data } });
+        dispatch({ type: ACTIONS.ADD_DATA, payload: { videos:data } });
+        getData()
         dispatch({ type: ACTIONS.SUCCESS });
         return data;
       } catch (error) {
@@ -115,10 +115,10 @@ export const VideosProvider = ({ children }) => {
       }
     };
     // Función de actualización
-const updateData = async (url, id, updatedData) => {
+const updateData = async (id, updatedData) => {
   dispatch({ type: ACTIONS.MAKE_REQUEST });
   try {
-    const response = await fetch(`${url}/${id}`, {
+    const response = await fetch(`${urlBase}/videos/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -126,7 +126,8 @@ const updateData = async (url, id, updatedData) => {
       body: JSON.stringify(updatedData)
     });
     const data = await response.json();
-    dispatch({ type: ACTIONS.UPDATE_DATA, payload: { id, data } });
+    dispatch({ type: ACTIONS.UPDATE_DATA, payload: { id, videos:data } });
+    getData()
     dispatch({ type: ACTIONS.SUCCESS });
     return data;
   } catch (error) {
@@ -135,27 +136,51 @@ const updateData = async (url, id, updatedData) => {
   }
 }
     // Función para DELETE
-    const deleteData = async (url, id) => {
+    const deleteData = async (id) => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
       try {
-        await fetch(`${url}/${id}`, {
+        await fetch(`${urlBase}/videos/${id}`, {
           method: 'DELETE'
         });
         dispatch({ type: ACTIONS.REMOVE_DATA, payload: { id } });
+        getData()
         dispatch({ type: ACTIONS.SUCCESS });
       } catch (error) {
         dispatch({ type: ACTIONS.ERROR, payload: { error } });
         throw error;
       }
     };
-  
+  const [category, setCategory] = useState([]);
+   
+    const categoria = () => {
+    try{
+
+      fetch(`${urlBase}/categoria`)
+        .then((response) => response.json())
+        .then((data) => setCategory(data));
+    }catch(error){
+    console.error("Error en la parte de categoria: ",error)
+    }
+    };
+    
+
   useEffect(()=>{
-    getData('http://localhost:5000/videos')
+    getData()
     // getData('https://alura-cinema-api-five.vercel.app/videos')
+    categoria();
+    
   },[])   
 
   return (
-    <VideosContext.Provider value={{state, dispatch,postData,deleteData,updateData}}>
+    <VideosContext.Provider value={
+      {
+        state, 
+        category,
+        dispatch,
+        postData,
+        deleteData,
+        updateData,
+        }}>
       {children}
     </VideosContext.Provider>
   );

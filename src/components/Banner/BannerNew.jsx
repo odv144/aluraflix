@@ -31,7 +31,7 @@ export const BannerNew = ({ img, color }) => {
         justify={"center"}
         bg="rgba(6, 1, 246, 0.37)"
       >
-        <Flex as="contenedor"
+        <Flex 
           p="35px"
            boxSizing="border-box"
           direction={{ base: "column", lg: "row" }}

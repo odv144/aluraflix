@@ -1,7 +1,7 @@
 {
   "categoria": [
     {
-      "id": 1,
+      "id": "1",
       "nombre": "Desarrollador",
       "descripcion": "Persona que se dedica a la creación de software",
       "imagen": "https://via.placeholder.com/150",
@@ -9,7 +9,7 @@
       "color": "rgba(255, 186, 5, 1)"
     },
     {
-      "id": 2,
+      "id": "2",
       "nombre": "FRONTEND",
       "descripcion": "Persona que se dedica a la creación de interface grafica",
       "imagen": "https://via.placeholder.com/150",
@@ -17,7 +17,7 @@
       "color": "rgba(0, 200, 111, 1)"
     },
     {
-      "id": 3,
+      "id": "3",
       "nombre": "Diseño",
       "descripcion": "Persona que se dedica al diseño grafico",
       "imagen": "https://via.placeholder.com/150",
@@ -25,7 +25,7 @@
       "color": "rgba(120, 100, 211, 1)"
     },
     {
-      "id": 4,
+      "id": "4",
       "nombre": "Power Manager",
       "descripcion": "Organizadores de los equipos de trabajo",
       "imagen": "https://via.placeholder.com/150",
@@ -33,7 +33,7 @@
       "color": "rgba(130, 250, 155, 1)"
     },
     {
-      "id": 4,
+      "id": "5",
       "nombre": "UX-UI",
       "descripcion": "Organizadores de los equipos de trabajo",
       "imagen": "https://via.placeholder.com/150",
@@ -43,25 +43,17 @@
   ],
   "videos": [
     {
-      "titulo": "John Doe",
-      "categoria": "Desarrollador",
-      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
+      "titulo": "Yanina Latorre",
+      "categoria": "FRONTEND",
+      "imagen": "https://imgs.search.brave.com/qnL5750nQ0sNI3ztQiueli101K10lNDQQObLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
       "video": "https://www.youtube.com/embed/fiIbxweAIEM?si=gpRs5SVZ5cXtOm-b",
       "descripcion": "No se porque la descripion de esta foto no la toma",
       "id": "1"
     },
     {
-      "titulo": "Omar Virili",
-      "categoria": "Desarrollador",
-      "imagen": "https://picsum.photos/200/300",
-      "video": "https://youtu.be/8x2US-Sz8KQ?si=-XEC_LmTSPbRMu0Y",
-      "descripcion": "al editar la descricpion con mucho texto al parecer te ambia el ando de4 la imagen",
-      "id": "2"
-    },
-    {
-      "titulo": "Pedro",
+      "titulo": "Lali la trola",
       "categoria": "Diseño",
-      "imagen": "https://picsum.photos/200/300",
+      "imagen": "https://imgs.search.brave.com/q3WcvAAkO1pzHe76pGjAP_V2LQVKovGuXhRCr4iQySE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/TnpQbVZic0pLY3F0/MVRDYnNnajdqVHls/X3pNPS8xMDIzeDEy/Nzgvc21hcnQvY2xv/dWRmcm9udC11cy1l/YXN0LTEuaW1hZ2Vz/LmFyY3B1Ymxpc2hp/bmcuY29tL2dydXBv/Y2xhcmluL0dUSERG/TVNISE5FRkJFWU1W/VU5JWktWUE80Lmpw/Zw",
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
       "descripcion": "Usted si que esta aprendiendo un monto haciendo",
       "id": "3"
@@ -88,6 +80,62 @@
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
       "descripcion": "No se porque esta no tenia comentario",
       "id": "6"
+    },
+    {
+      "id": "f99f",
+      "titulo": "Nueva prueba",
+      "categoria": "",
+      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
+      "video": "https://www.youtube.com/watch?v=eao7ABGFUXs",
+      "descripcion": "Nuevas desripciones"
+    },
+    {
+      "id": "7477",
+      "titulo": "NO se uqe pada",
+      "categoria": "",
+      "imagen": "https://imgs.search.brave.com/qnL5750nQ0sNI3ztQiueli101K10lNDQQObLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
+      "video": "www.youtube.com/watch?v=PA4uhKFkG-s",
+      "descripcion": "dsfasdf sdfasdfasdfasdfasdfa"
+    },
+    {
+      "id": "9ecc",
+      "titulo": "Titulo",
+      "categoria": "",
+      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
+      "video": "https://www.youtube.com/watch?v=eao7ABGFUXs",
+      "descripcion": "dsfasdfasdfasdf"
+    },
+    {
+      "titulo": "La otra yanina",
+      "categoria": "Desarrollador",
+      "imagen": "https://imgs.search.brave.com/qnL5750nQ0sNI3ztQiueli101K10lNDQQObLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
+      "video": "https://www.youtube.com/embed/8x2US-Sz8KQ",
+      "descripcion": "fasdfasdfasdfasdf",
+      "id": "60e1"
+    },
+    {
+      "titulo": "titulo nuevo",
+      "categoria": "Diseño",
+      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
+      "video": "https://www.youtube.com/embed/k7Ecs8yyFT4&list=PL1yL1TVvgf7Oo9PtuKs8yzOeTFCR-nsaa&index=5&t=4s",
+      "descripcion": "asdfasdfasdfasdfasdf",
+      "id": "196d"
+    },
+    {
+      "id": "b1a5",
+      "titulo": "Zaira Nara",
+      "categoria": "Diseño",
+      "imagen": "https://imgs.search.brave.com/kNokQgxLrxpx2gwgiVEva-OBplub9wlKLU2L6kwPK78/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWV0YWxsaXJhcmku/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIxLzA0L1phaXJh/LU5hcmEuanBnLndl/YnA",
+      "video": "https://www.youtube.com/watch?v=eao7ABGFUXs",
+      "descripcion": "Esta fuerte la guacha"
+    },
+    {
+      "titulo": "Flor Arias",
+      "categoria": "FRONTEND",
+      "imagen": "https://imgs.search.brave.com/7FiNtJXkBH7HUrNDsYbBmXcQ2DJkkmJ_c1PpDQkUR8U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/Q01XeV95dVB0ZVJW/eEYtdUNoUHBXZVF4/Q0ZJPS8xMDIzeDEx/NzIvc21hcnQvY2xv/dWRmcm9udC11cy1l/YXN0LTEuaW1hZ2Vz/LmFyY3B1Ymxpc2hp/bmcuY29tL2dydXBv/Y2xhcmluL1RaQVBX/UkFTVlZERUxDUVFS/UDRSREdYTEtRLmpw/Zw",
+      "video": "https://www.youtube.com/embed/AWcm56_eNZg",
+      "descripcion": "Terrible mente fuerte",
+      "id": "0945"
     }
   ]
 }
