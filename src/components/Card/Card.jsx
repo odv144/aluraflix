@@ -10,6 +10,7 @@ import {
   Flex,
   HStack,
   Image,
+  Img,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -110,24 +111,26 @@ export const CardContainer = ({ categoria, color, videos }) => {
                       {/* <Stack align={"center"} pt="5px">
                         <Text>{video.titulo}</Text>
                       </Stack> */}
-                      <CardBody w="430px" h="260px" p='0'  
-                      display="flex" 
-                      justifyContent="center" 
-                      alignItems="center">
+                      <CardBody
+                        w="460px"
+                        h="260px"
+                        p="0"
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                      >
                         <Box
-                       
-                          borderRadius={"15px 15px 0px 0px"}
-                          bgImage={video.imagen}
+                          borderRadius={"1s5px 15px 0px 0px"}
+                          // bgImage={video.imagen}
                           // src={video.imagen}
                           alt={video.titulo}
-                          w="400px"
+                          w="420px"
                           h="240px"
                         >
-                          <Flex  
-                          h="100%" 
-                          bg={"rgba(251, 255, 24, 0.19)"}
+                          <Img src={video.imagen}
+                          
+                          />
                          
-                          ></Flex>
                         </Box>
                       </CardBody>
                       {/* <Stack align={"center"}>
@@ -135,7 +138,7 @@ export const CardContainer = ({ categoria, color, videos }) => {
                           {video.descripcion}
                         </Text>
                       </Stack> */}
-                      <CardFooter h="70px" w="400px" bg="black">
+                      <CardFooter h="70px" w="100%" bg={"rgb(0, 0, 0)"}>
                         <ButtonGroup justify={"space-around"}>
                           <HStack>
                             <Button

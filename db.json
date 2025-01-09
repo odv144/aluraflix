@@ -45,7 +45,7 @@
     {
       "titulo": "Yanina Latorre",
       "categoria": "FRONTEND",
-      "imagen": "https://imgs.search.brave.com/qnL5750nQ0sNI3ztQiueli101K10lNDQQObLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
+      "imagen": "https://i.postimg.cc/VN3L5Wpc/image-2.pngbLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
       "video": "https://www.youtube.com/embed/fiIbxweAIEM?si=gpRs5SVZ5cXtOm-b",
       "descripcion": "No se porque la descripion de esta foto no la toma",
       "id": "1"
@@ -53,18 +53,18 @@
     {
       "titulo": "Lali la trola",
       "categoria": "Diseño",
-      "imagen": "https://imgs.search.brave.com/q3WcvAAkO1pzHe76pGjAP_V2LQVKovGuXhRCr4iQySE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/TnpQbVZic0pLY3F0/MVRDYnNnajdqVHls/X3pNPS8xMDIzeDEy/Nzgvc21hcnQvY2xv/dWRmcm9udC11cy1l/YXN0LTEuaW1hZ2Vz/LmFyY3B1Ymxpc2hp/bmcuY29tL2dydXBv/Y2xhcmluL0dUSERG/TVNISE5FRkJFWU1W/VU5JWktWUE80Lmpw/Zw",
+      "imagen": "https://i.postimg.cc/pTzVjnM5/image8.png",
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
       "descripcion": "Usted si que esta aprendiendo un monto haciendo",
       "id": "3"
     },
     {
-      "id": "4",
       "titulo": "Ramiro Doe",
       "categoria": "Power Manager",
-      "imagen": "https://picsum.photos/200/300",
+      "imagen": "https://i.postimg.cc/tC53Ps9c/image3.png",
       "video": "",
-      "descripcion": "Preubas de descripcion"
+      "descripcion": "Preubas de descripcion",
+      "id": "4"
     },
     {
       "titulo": "Yanina Latorre",
@@ -76,7 +76,7 @@
     {
       "titulo": "Martina Romanina Mani",
       "categoria": "UX-UI",
-      "imagen": "https://imgs.search.brave.com/3TX2FXh9K6XVvAK1faSsVeU6Wh_y6I2Zf6MhQSU0abE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdG9y/YWdlLmxhY2FwaXRh/bG1kcC5jb20vMjAy/Mi8wNC95YW5pbmEt/bGF0b3JyZS1oYWJs/by1kZS1sYS1lc3Rh/ZmEtZGUtbGEtcXVl/LWZ1ZXJvbi12aWN0/aW1hcy1sYXMtYW1p/Z2FzLWRlLXN1LWhp/amEtbG9sYS0xMzQz/ODM5LTEwMjR4NTc2/LmpwZw",
+      "imagen": "https://i.postimg.cc/t44hz9T4/image4.png",
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
       "descripcion": "No se porque esta no tenia comentario",
       "id": "6"
@@ -108,31 +108,15 @@
     {
       "titulo": "La otra yanina",
       "categoria": "Desarrollador",
-      "imagen": "https://imgs.search.brave.com/qnL5750nQ0sNI3ztQiueli101K10lNDQQObLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
+      "imagen": "https://i.postimg.cc/fb3RwrHK/image-1.png",
       "video": "https://www.youtube.com/embed/8x2US-Sz8KQ",
       "descripcion": "fasdfasdfasdfasdf",
       "id": "60e1"
     },
     {
-      "titulo": "titulo nuevo",
-      "categoria": "Diseño",
-      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
-      "video": "https://www.youtube.com/embed/k7Ecs8yyFT4&list=PL1yL1TVvgf7Oo9PtuKs8yzOeTFCR-nsaa&index=5&t=4s",
-      "descripcion": "asdfasdfasdfasdfasdf",
-      "id": "196d"
-    },
-    {
-      "id": "b1a5",
-      "titulo": "Zaira Nara",
-      "categoria": "Diseño",
-      "imagen": "https://imgs.search.brave.com/kNokQgxLrxpx2gwgiVEva-OBplub9wlKLU2L6kwPK78/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bWV0YWxsaXJhcmku/Y29tL3dwLWNvbnRl/bnQvdXBsb2Fkcy8y/MDIxLzA0L1phaXJh/LU5hcmEuanBnLndl/YnA",
-      "video": "https://www.youtube.com/watch?v=eao7ABGFUXs",
-      "descripcion": "Esta fuerte la guacha"
-    },
-    {
       "titulo": "Flor Arias",
       "categoria": "FRONTEND",
-      "imagen": "https://imgs.search.brave.com/7FiNtJXkBH7HUrNDsYbBmXcQ2DJkkmJ_c1PpDQkUR8U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/Q01XeV95dVB0ZVJW/eEYtdUNoUHBXZVF4/Q0ZJPS8xMDIzeDEx/NzIvc21hcnQvY2xv/dWRmcm9udC11cy1l/YXN0LTEuaW1hZ2Vz/LmFyY3B1Ymxpc2hp/bmcuY29tL2dydXBv/Y2xhcmluL1RaQVBX/UkFTVlZERUxDUVFS/UDRSREdYTEtRLmpw/Zw",
+      "imagen": "https://i.postimg.cc/1XSmr5yC/image-7.png_c1PpDQkUR8U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/Q01XeV95dVB0ZVJW/eEYtdUNoUHBXZVF4/Q0ZJPS8xMDIzeDEx/NzIvc21hcnQvY2xv/dWRmcm9udC11cy1l/YXN0LTEuaW1hZ2Vz/LmFyY3B1Ymxpc2hp/bmcuY29tL2dydXBv/Y2xhcmluL1RaQVBX/UkFTVlZERUxDUVFS/UDRSREdYTEtRLmpw/Zw",
       "video": "https://www.youtube.com/embed/AWcm56_eNZg",
       "descripcion": "Terrible mente fuerte",
       "id": "0945"
