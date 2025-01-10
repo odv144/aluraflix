@@ -11,15 +11,17 @@ const baseStyle = definePartsStyle({
   list: {
     // this will style the MenuList component
     py: '4',
+    
     borderRadius: '5px',
     border: 'none',
-    bg: 'blue.500',
+    bg: 'rgba(82, 82, 82, 0.7)',
   },
   item: {
     // this will style the MenuItem and MenuItemOption components
-    color: 'black',
+    color: 'gray.600',
+   
     _hover: {
-      bg: 'teal.600',
+      bg: 'gray.300',
     },
     _focus: {
       bg: 'blue.600',

@@ -41,7 +41,7 @@ export const CardContainer = ({ categoria, color, videos }) => {
   const [edit, setEdit] = useState();
 
   const [r, g, b] = color.match(/\d+/g);
-  const fondo = `rgba(${r}, ${g}, ${b}, 0.3)`; // Alfa reducido a 0.5
+  const fondo = `rgba(${r}, ${g}, ${b},0.2)`; // Alfa reducido a 0.5
 
   const modificacion = (video) => {
     setEdit(video);
@@ -55,17 +55,26 @@ export const CardContainer = ({ categoria, color, videos }) => {
       console.error("Error al eliminar:", error);
     }
   };
+
+  const [isVisible, setIsVisible] = useState();
+  const ocultar = (categoria) => {
+    console.log(categoria);
+    const cat = document.getElementById(categoria);
+    cat.style.display = cat.style.display == "none" ? "flex" : "none";
+  };
+
   return (
     <>
       {/* inicio del modal */}
       <form>
         <Modal isOpen={isOpen} onClose={onClose} size="2xl">
           <ModalOverlay />
-          <ModalContent bg={"rgba(34, 113, 209, 1)"}>
+          <ModalContent bg={"rgba(114, 219, 253, 0.77)"}>
             <ModalHeader>EDITAR CARD</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
               <Nuevo
+             
                 fondo={"rgba(34, 113, 209, 1)"}
                 dato={edit}
                 cerrar={onClose}
@@ -85,6 +94,7 @@ export const CardContainer = ({ categoria, color, videos }) => {
               px={6}
               py={2}
               mb={4}
+              onClick={() => ocultar(categoria)}
               borderRadius="md"
               bg={color}
               _hover={{ bg: "cyan.200", cursor: "pointer" }}
@@ -92,7 +102,7 @@ export const CardContainer = ({ categoria, color, videos }) => {
               {categoria}
             </Badge>
 
-            <Flex as="article" justifyContent={"center"}>
+            <Flex as="article" id={categoria} justifyContent={"center"}>
               <Wrap justify={"center"} spacing={5}>
                 {videos.map((video) => (
                   <WrapItem key={video.id}>
@@ -120,17 +130,20 @@ export const CardContainer = ({ categoria, color, videos }) => {
                         alignItems="center"
                       >
                         <Box
-                          borderRadius={"1s5px 15px 0px 0px"}
+                          display={"flex"}
                           // bgImage={video.imagen}
                           // src={video.imagen}
                           alt={video.titulo}
                           w="420px"
                           h="240px"
+                          justifyContent={"center"}
                         >
-                          <Img src={video.imagen}
-                          
+                          <Img
+                            src={video.imagen}
+                            borderRadius={"15px 15px 0px 0px"}
+                            maxH={"240px"}
+                            minW={"400px"}
                           />
-                         
                         </Box>
                       </CardBody>
                       {/* <Stack align={"center"}>
@@ -142,18 +155,18 @@ export const CardContainer = ({ categoria, color, videos }) => {
                         <ButtonGroup justify={"space-around"}>
                           <HStack>
                             <Button
-                              variant={"solid"}
-                              colorScheme="red"
+                              variant={"outline"}
                               onClick={() => handleDelete(video.id)}
                             >
                               Eliminar
+                              <Img src={iconBorrar} h="28px" w="28px" m='2px' p='2px'/>
                             </Button>
                             <Button
-                              variant={"solid"}
-                              colorScheme="yellow"
+                              variant={"outline"}
                               onClick={() => modificacion(video)}
                             >
                               Editar
+                            <Img src={iconEditar} h="28px" w="28px" m='2px' p='2px'/>
                             </Button>
                             <Link to={`./player/${video.id}`}>
                               <Image

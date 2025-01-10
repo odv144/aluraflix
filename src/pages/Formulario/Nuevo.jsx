@@ -17,6 +17,9 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  FormHelperText,
+  Flex,
+  VStack,
 } from "@chakra-ui/react";
 import { ChevronDownIcon, CopyIcon } from "@chakra-ui/icons";
 import { VideosContext } from "../../Context/VideosContext";
@@ -26,16 +29,26 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
   const { state, category, postData, updateData } = useContext(VideosContext);
   const navigate = useNavigate();
   //estado inicial del dataForm
-  
+  const initialData={
+    titulo: "",
+    categoria: "",
+    imagen: "",
+    video: "",
+    descripcion: "",
+  }
+  //valores iniciales para los errores
+  const initialErrors={
+    titulo: false,
+    categoria: false,
+    imagen: false,
+    video: false,
+    descripcion: false,
+  }
+
   const [formData, setFormData] = useState(
     dato === ""
-      ? {
-          titulo: "",
-          categoria: "",
-          imagen: "",
-          video: "",
-          descripcion: "",
-        }
+      ? initialData
+      
       : {
           titulo: dato.titulo,
           categoria: dato.categoria,
@@ -47,28 +60,41 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
   //manejador para el cambio de estado
 
   const handleChange = (value) => {
-    
-    setFormData(prevData=>({
+    const fieldName = Object.keys(value)[0];
+    const fieldValue = value[fieldName];
+    //ver si se lo toco
+    setTouched((prev) => ({
+      ...prev,
+      [fieldName]: true,
+    }));
+    // Validar el campo
+    const error = validateField(fieldName, fieldValue);
+
+    setErrors((prev) => ({
+      ...prev,
+      [fieldName]: error,
+    }));
+
+    setFormData((prevData) => ({
       ...prevData,
       ...value,
-      
     }));
   };
 
   //manejador del envio del submint
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      // Si hay errores, no enviar el formulario
+      alert("el formulario tiene problemas");
+      return;
+    }
+    //enviar el formulario
     if (dato === "") {
       try {
-        await postData( formData);
-       
-        setFormData({
-          titulo: "",
-          categoria: "",
-          imagen: "",
-          video: "",
-          descripcion: "",
-        });
+        await postData(formData);
+        setFormData(initialData);
       } catch (error) {
         console.error("error al enviar:", error);
       }
@@ -83,7 +109,68 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
     }
   };
 
-  const flag = false;
+  // Validación del formulario completo antes de enviar
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {};
+
+    // Validar cada campo
+    Object.keys(formData).forEach((field) => {
+      const error = validateField(field, formData[field]);
+      newErrors[field] = error;
+      if (error) isValid = false;
+    });
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
+  //variable de estado para manejar los errores
+  const [errors, setErrors] = useState(initialData);
+  const [touched, setTouched] = useState(initialErrors);
+
+  // Función de validación
+  const validateField = (name, value) => {
+    switch (name) {
+      case "titulo":
+        if (!value.trim()) return "El título es obligatorio";
+        if (value.length < 3)
+          return "El título debe tener al menos 3 caracteres";
+        if (value.length > 50)
+          return "El título no puede exceder 50 caracteres";
+        return "";
+
+      case "categoria":
+        if (!value) return "Debe seleccionar una categoría";
+        return "";
+
+      case "imagen":
+        if (!value) return "La URL de la imagen es obligatoria";
+        const imagePattern = /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp)$/i;
+        if (!imagePattern.test(value))
+          return "Ingrese una URL de imagen válida";
+        return "";
+
+      case "video":
+        if (!value) return "La URL del video es obligatoria";
+        const videoPattern =
+          /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
+        if (!videoPattern.test(value))
+          return "Ingrese una URL de YouTube válida";
+        return "";
+
+      case "descripcion":
+        if (!value.trim()) return "La descripción es obligatoria";
+        if (value.length < 10)
+          return "La descripción debe tener al menos 10 caracteres";
+        if (value.length > 200)
+          return "La descripción no puede exceder 200 caracteres";
+        return "";
+
+      default:
+        return "";
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -96,25 +183,18 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
         color={"white"}
         letterSpacing={1}
       >
-        <Heading>NUEVO VIDEO</Heading>
-        <Text
-          as="h2"
-          textAlign="center"
-          fontWeight="bold"
-          fontSize="sm"
-          display="flex"
-        >
-          COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO
-        </Text>
-        <Container
-          
-          maxW="50%"
-          m={5}
-          p={5}
-          display="flex"
-          flexDirection="column"
-          alignItems="stretch"
-        >
+        {(dato==='')&&
+        <VStack>
+          <Heading>NUEVO VIDEO</Heading>
+          <Text
+            as="h2"
+            textAlign="center"
+            fontWeight="bold"
+            fontSize="sm"
+            display="flex"
+          >
+            COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA DE VIDEO
+          </Text>
           <Divider
             borderColor="white"
             height="1px"
@@ -130,80 +210,148 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
             backgroundColor="white"
             border="1px "
           />
+        </VStack>
+        }
+        <Container
+          maxW="60%"
+          m={5}
+          p={5}
+          display="flex"
+          flexDirection="column"
+          alignItems="stretch"
+        >
           <Wrap justify={"center"} spacing={6}>
             <WrapItem>
-              <FormControl m="2px" p="5px" w="300px">
+              <FormControl
+                m="2px"
+                p="5px"
+                w="350px"
+                isInvalid={touched.titulo && errors.titulo}
+              >
                 <FormLabel>Titulo</FormLabel>
                 <Input
                   value={formData.titulo}
-                  onChange={(e)=>handleChange({ titulo: e.target.value })}
+                  onChange={(e) => handleChange({ titulo: e.target.value })}
+                  onBlur={() =>
+                    setTouched((prev) => ({ ...prev, titulo: true }))
+                  }
                   placeholder="Ingrese el titulo"
                   name="titulo"
                 />
-                {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+                {touched.titulo && errors.titulo && (
+                  <FormErrorMessage color="red.500">
+                    {errors.titulo}
+                  </FormErrorMessage>
+                )}
               </FormControl>
             </WrapItem>
+
             <WrapItem>
-              <FormControl m="2px" p="5px">
+              <FormControl
+                m="2px"
+                p="5px"
+                isInvalid={touched.categoria && errors.categoria}
+              >
                 <FormLabel>Categoria</FormLabel>
                 <Menu>
                   <MenuButton
                     as={Button}
-                    variant={"outline"}
+                    variant={"alura2"}
                     rightIcon={<ChevronDownIcon />}
-                    name='categoria'
+                    name="categoria"
+                    color="gray.400"
+                    borderColor={"white"}
+                    onBlur={() =>
+                      setTouched((prev) => ({ ...prev, categoria: true }))
+                    }
                   >
-                    Actions
+                    {formData.categoria || "Selececcione Categoria"}
                   </MenuButton>
                   <MenuList>
                     {category.map((cat) => (
                       <MenuItem
                         key={cat.id}
-                       onClick={()=>handleChange({ categoria: cat.nombre })}
-                        textTransform={'uppercase'}
+                        onClick={() => handleChange({ categoria: cat.nombre })}
+                        textTransform={"uppercase"}
                       >
                         {cat.nombre}
                       </MenuItem>
                     ))}
                   </MenuList>
                 </Menu>
-                {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+                {touched.categoria && errors.categoria && (
+                  <FormErrorMessage color="red.500">
+                    {errors.categoria}
+                  </FormErrorMessage>
+                )}
               </FormControl>
             </WrapItem>
             <WrapItem>
-              <FormControl m="2px" p="5px" w="500px">
+              <FormControl
+                m="2px"
+                p="5px"
+                w="500px"
+                isInvalid={touched.imagen && errors.imagen}
+              >
                 <FormLabel>Imagen</FormLabel>
                 <Input
                   value={formData.imagen}
-                  onChange={(e)=>handleChange({ imagen: e.target.value })}
+                  onChange={(e) => handleChange({ imagen: e.target.value })}
+                  onBlur={() =>
+                    setTouched((prev) => ({ ...prev, imagen: true }))
+                  }
                   placeholder="Url de la imagen"
                   name="imagen"
                 />
-                {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+                {touched.imagen && errors.imagen && (
+                  <FormErrorMessage>{errors.imagen}</FormErrorMessage>
+                )}
               </FormControl>
             </WrapItem>
             <WrapItem>
-              <FormControl m="2px" p="5px" w="500px">
+              <FormControl
+                m="2px"
+                p="5px"
+                w="500px"
+                isInvalid={touched.video && errors.video}
+              >
                 <FormLabel>Video</FormLabel>
                 <Input
                   value={formData.video}
-                  onChange={(e)=>handleChange({ video: e.target.value })}
+                  onChange={(e) => handleChange({ video: e.target.value })}
+                  onBlur={() =>
+                    setTouched((prev) => ({ ...prev, video: true }))
+                  }
                   placeholder="Url del video a subir"
                   name="video"
                 />
-                {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+                {touched.video && errors.video && (
+                  <FormErrorMessage>{errors.video}</FormErrorMessage>
+                )}
               </FormControl>
             </WrapItem>
             <WrapItem>
-              <FormControl m="2px" p="5px" w="500px">
+              <FormControl
+                m="2px"
+                p="5px"
+                w="500px"
+                isInvalid={touched.descripcion && errors.descripcion}
+              >
                 <FormLabel>Descripcion</FormLabel>
                 <Textarea
                   value={formData.descripcion}
-                  onChange={(e)=>handleChange({ descripcion: e.target.value })}
+                  onChange={(e) =>
+                    handleChange({ descripcion: e.target.value })
+                  }
+                  onBlur={() =>
+                    setTouched((prev) => ({ ...prev, descripcion: true }))
+                  }
                   placeholder="Descripcion del video"
                   name="descripcion"
                 />
-                {flag && <FormErrorMessage>Error message</FormErrorMessage>}
+                {touched.descripcion && errors.descripcion && (
+                  <FormErrorMessage>{errors.descripcion}</FormErrorMessage>
+                )}
               </FormControl>
             </WrapItem>
           </Wrap>
@@ -218,7 +366,7 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
             <Button color="green" type="submit">
               GUARDAR
             </Button>
-            <Button color="red.500">LIMIPIAR</Button>
+            <Button color="red.500" onClick={()=>{setFormData(initialData);setTouched(initialErrors)}}>LIMIPIAR</Button>
           </FormControl>
         </Container>
       </Center>

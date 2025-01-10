@@ -30,6 +30,14 @@ export const ButtonConfig = defineStyleConfig({
       borderColor: "blue.300",
       border: "2px solid",
     },
+    alura2: {
+      color: "white.300",
+      bg: "black.600",
+      borderColor: "black.300",
+      border: "1px solid",
+    
+      
+    },
     custom: {
       textTransform: "uppercase",
       border: "1px solid white",

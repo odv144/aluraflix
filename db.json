@@ -2,11 +2,11 @@
   "categoria": [
     {
       "id": "1",
-      "nombre": "Desarrollador",
+      "nombre": "Backend",
       "descripcion": "Persona que se dedica a la creación de software",
       "imagen": "https://via.placeholder.com/150",
       "created_at": "2022-01-01T00:00:00.000Z",
-      "color": "rgba(255, 186, 5, 1)"
+      "color": "rgba(255, 186, 5)"
     },
     {
       "id": "2",
@@ -14,7 +14,7 @@
       "descripcion": "Persona que se dedica a la creación de interface grafica",
       "imagen": "https://via.placeholder.com/150",
       "created_at": "2024-01-01T00:00:00.000Z",
-      "color": "rgba(0, 200, 111, 1)"
+      "color": "rgba(0, 200, 111)"
     },
     {
       "id": "3",
@@ -22,7 +22,7 @@
       "descripcion": "Persona que se dedica al diseño grafico",
       "imagen": "https://via.placeholder.com/150",
       "created_at": "2025-01-01T00:00:00.000Z",
-      "color": "rgba(120, 100, 211, 1)"
+      "color": "rgba(120, 100, 211)"
     },
     {
       "id": "4",
@@ -30,7 +30,7 @@
       "descripcion": "Organizadores de los equipos de trabajo",
       "imagen": "https://via.placeholder.com/150",
       "created_at": "2025-01-01T00:00:00.000Z",
-      "color": "rgba(130, 250, 155, 1)"
+      "color": "rgba(130, 250, 155)"
     },
     {
       "id": "5",
@@ -38,87 +38,66 @@
       "descripcion": "Organizadores de los equipos de trabajo",
       "imagen": "https://via.placeholder.com/150",
       "created_at": "2025-01-01T00:00:00.000Z",
-      "color": "rgba(235, 100, 130, 1)"
+      "color": "rgba(235, 100, 130)"
+    },
+    {
+      "id": "6",
+      "nombre": "OTRAS",
+      "descripcion": "Incluye todo grupo de equipos de trabajo",
+      "imagen": "https://via.placeholder.com/150",
+      "created_at": "2025-01-01T00:00:00.000Z",
+      "color": "rgba(133, 116, 247)"
     }
   ],
   "videos": [
     {
-      "titulo": "Yanina Latorre",
-      "categoria": "FRONTEND",
-      "imagen": "https://i.postimg.cc/VN3L5Wpc/image-2.pngbLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
+      "titulo": "QUE SON LAS SOFT SKILLS",
+      "categoria": "Power Manager",
+      "imagen": "https://i.postimg.cc/VN3L5Wpc/image-2.png",
       "video": "https://www.youtube.com/embed/fiIbxweAIEM?si=gpRs5SVZ5cXtOm-b",
-      "descripcion": "No se porque la descripion de esta foto no la toma",
+      "descripcion": "Hoy todo equipo de trabajo requiere de que sus participantes, tengas buenas soft skills, para un mejor desempeño.",
       "id": "1"
     },
     {
-      "titulo": "Lali la trola",
-      "categoria": "Diseño",
+      "titulo": "¿QUE ES JAVASCRIPT?",
+      "categoria": "FRONTEND",
       "imagen": "https://i.postimg.cc/pTzVjnM5/image8.png",
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
-      "descripcion": "Usted si que esta aprendiendo un monto haciendo",
+      "descripcion": "Cada ves más sitios demandan interacción con los usuarios, requieren interfaces, dinámicas e interactivas.",
       "id": "3"
     },
     {
-      "titulo": "Ramiro Doe",
-      "categoria": "Power Manager",
+      "titulo": "¿QUE ES SQL Y NOSQL?",
+      "categoria": "OTRAS",
       "imagen": "https://i.postimg.cc/tC53Ps9c/image3.png",
-      "video": "",
-      "descripcion": "Preubas de descripcion",
+      "video": "https://www.youtube.com/embed/cLLKVd5CNLc&t=645s",
+      "descripcion": "Conociendo diversas tecnologías para las bases de datos",
       "id": "4"
     },
     {
-      "titulo": "Yanina Latorre",
-      "categoria": "Desarrollador Frontend",
-      "imagen": "https://imgs.search.brave.com/3Uls12tIHoi-xX3jogZAgcFJGs1W9wcwg8WTGKerP-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/djIvREdHWTVQSDYz/QkFVUEVWUjJIVzVS/V0RTSE0uanBnP3F1/YWxpdHk9NzUmc21h/cnQ9dHJ1ZSZhdXRo/PThlMzAyMDlhMzQ3/ZDhjMzk1NWFlMzI2/NTMxODQxYWI5Y2Fi/M2RkNDcxZTQyOTY5/M2EyZTIxYjU0ZmIz/MTkyYjAmd2lkdGg9/OTgwJmhlaWdodD02/NDA",
-      "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
-      "id": "5"
-    },
-    {
-      "titulo": "Martina Romanina Mani",
-      "categoria": "UX-UI",
+      "titulo": "Enum en JAVA",
+      "categoria": "Backend",
       "imagen": "https://i.postimg.cc/t44hz9T4/image4.png",
       "video": "https://www.youtube.com/watch?v=PA4uhKFkG-s",
-      "descripcion": "No se porque esta no tenia comentario",
+      "descripcion": "Simplifica el código escrito en JAVA conociendo estructuras de datos como Enum, para limpiar tu código.",
       "id": "6"
     },
+   
+    
     {
-      "id": "f99f",
-      "titulo": "Nueva prueba",
-      "categoria": "",
-      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
-      "video": "https://www.youtube.com/watch?v=eao7ABGFUXs",
-      "descripcion": "Nuevas desripciones"
-    },
-    {
-      "id": "7477",
-      "titulo": "NO se uqe pada",
-      "categoria": "",
-      "imagen": "https://imgs.search.brave.com/qnL5750nQ0sNI3ztQiueli101K10lNDQQObLUzfK2V4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mb3Rv/cy5wZXJmaWwuY29t/Ly8yMDI0LzEyLzE0/LzkwMC8wL3lhbmlu/YS1sYXRvcnJlLTE5/MzA4MTUuanBlZw",
-      "video": "www.youtube.com/watch?v=PA4uhKFkG-s",
-      "descripcion": "dsfasdf sdfasdfasdfasdfasdfa"
-    },
-    {
-      "id": "9ecc",
-      "titulo": "Titulo",
-      "categoria": "",
-      "imagen": "https://imgs.search.brave.com/JhDYzZoF9Y1GAZ-yDtzFUXG94pLS9XXPzrjd77R3x2s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aXN0b2NrcGhvdG8u/Y29tL3Jlc291cmNl/cy9pbWFnZXMvUGhv/dG9GVExQLzEwNTg4/MzQ2MTYuanBn",
-      "video": "https://www.youtube.com/watch?v=eao7ABGFUXs",
-      "descripcion": "dsfasdfasdfasdf"
-    },
-    {
-      "titulo": "La otra yanina",
-      "categoria": "Desarrollador",
+      "titulo": "Sprint Frameworks",
+      "categoria": "Backend",
       "imagen": "https://i.postimg.cc/fb3RwrHK/image-1.png",
       "video": "https://www.youtube.com/embed/8x2US-Sz8KQ",
-      "descripcion": "fasdfasdfasdfasdf",
+      "descripcion": "Aprendiste JAVA, quieres usarlo para desarrollo web, Sprint boot es un frameworks que te facilitará el trabajo.",
       "id": "60e1"
     },
     {
-      "titulo": "Flor Arias",
+      "titulo": "CUANDO USAR LET, VAR Y CONST",
       "categoria": "FRONTEND",
-      "imagen": "https://i.postimg.cc/1XSmr5yC/image-7.png_c1PpDQkUR8U/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bG9zYW5kZXMuY29t/LmFyL3Jlc2l6ZXIv/Q01XeV95dVB0ZVJW/eEYtdUNoUHBXZVF4/Q0ZJPS8xMDIzeDEx/NzIvc21hcnQvY2xv/dWRmcm9udC11cy1l/YXN0LTEuaW1hZ2Vz/LmFyY3B1Ymxpc2hp/bmcuY29tL2dydXBv/Y2xhcmluL1RaQVBX/UkFTVlZERUxDUVFS/UDRSREdYTEtRLmpw/Zw",
+      "imagen": "https://i.postimg.cc/1XSmr5yC/image-7.png",
       "video": "https://www.youtube.com/embed/AWcm56_eNZg",
-      "descripcion": "Terrible mente fuerte",
+      "descripcion": "No siempre sirve usar cualquier cosa en cualquier lugar, aprende como usar LET, VAR y CONST de la forma correcta.",
       "id": "0945"
     }
   ]
