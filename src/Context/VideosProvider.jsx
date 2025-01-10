@@ -3,6 +3,8 @@ import { VideosContext } from "./VideosContext";
 //token para usar b1d30cba-625f-4a6e-9b36-b467706e05ea
 
 const urlBase='https://alura-cinema-api-five.vercel.app';
+const urlJsonBin='https://api.jsonbin.io/v3/b/67810b20ad19ca34f8ead12a';
+const key='$2a$10$UN0bhI9hjQe1AzpDD54HC.c8Df92qtsJqCqc9VODUj5uuYbhxOaba';
 // const urlBase='http://localhost:5000';
 // comienzo de reducer
 // Tipos de acciones
@@ -82,9 +84,18 @@ export const VideosProvider = ({ children }) => {
     const getData = async () => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
       try {
-        const response = await fetch(`${urlBase}/videos`);
+        // const response = await fetch(`${urlBase}/videos`);
+
+        // const response = await fetch('https://api.jsonbin.io/v3/b/67810b20ad19ca34f8ead12a', {
+        const response = await fetch(urlJsonBin, {
+          method: 'GET',
+          headers: {
+            'X-Master-Key': key
+          }
+        });
         const data = await response.json();
-        dispatch({ type: ACTIONS.SET_DATA, payload:  data });
+       console.log(data.record.categoria)
+        dispatch({ type: ACTIONS.SET_DATA, payload:  data.record.videos});
         dispatch({ type: ACTIONS.SUCCESS });
       } catch (error) {
         dispatch({ type: ACTIONS.ERROR, payload: { error } });
