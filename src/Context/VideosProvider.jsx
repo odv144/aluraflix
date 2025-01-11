@@ -3,7 +3,10 @@ import { VideosContext } from "./VideosContext";
 //token para usar b1d30cba-625f-4a6e-9b36-b467706e05ea
 
 const urlBase='https://alura-cinema-api-five.vercel.app';
-const urlJsonBin='https://api.jsonbin.io/v3/b/67810b20ad19ca34f8ead12a';
+const urlJsonBin='https://api.jsonbin.io/v3/b/';
+const tokenVideo='6781c08fe41b4d34e4758772';
+const tokenCategoria='67818e44e41b4d34e4757799';
+
 const key='$2a$10$UN0bhI9hjQe1AzpDD54HC.c8Df92qtsJqCqc9VODUj5uuYbhxOaba';
 // const urlBase='http://localhost:5000';
 // comienzo de reducer
@@ -84,17 +87,13 @@ export const VideosProvider = ({ children }) => {
     const getData = async () => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
       try {
-        // const response = await fetch(`${urlBase}/videos`);
-
-        // const response = await fetch('https://api.jsonbin.io/v3/b/67810b20ad19ca34f8ead12a', {
-        const response = await fetch(urlJsonBin, {
+         const response = await fetch(`${urlJsonBin}${tokenVideo}`, {
           method: 'GET',
           headers: {
             'X-Master-Key': key
           }
         });
         const data = await response.json();
-       console.log(data.record.categoria)
         dispatch({ type: ACTIONS.SET_DATA, payload:  data.record.videos});
         dispatch({ type: ACTIONS.SUCCESS });
       } catch (error) {
@@ -106,41 +105,57 @@ export const VideosProvider = ({ children }) => {
     const postData = async ( newData) => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
        try {
-        const response = await fetch(`${urlBase}/videos`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-           
-          body: JSON.stringify(newData)
-        });
-        
-        const data = await response.json();
-        dispatch({ type: ACTIONS.ADD_DATA, payload: { videos:data } });
         getData()
+         // 2. Modificar los datos (ejemplo asumiendo que tienes un array de videos)
+        const upData = {
+      ...state,
+      videos: [...state.videos, newData]
+    };
+   
+        updateData(upData.videos)
+
+        // const response = await fetch(`${urlJsonBin}${tokenVideo}`, {
+        //   method: 'POST',
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+           
+        //   body: JSON.stringify(newData)
+        // });
+        
+        // const data = await response.json();
+        // dispatch({ type: ACTIONS.ADD_DATA, payload: { videos:data } });
+        // getData()
         dispatch({ type: ACTIONS.SUCCESS });
-        return data;
+        // return data;
       } catch (error) {
         dispatch({ type: ACTIONS.ERROR, payload: { error } });
         throw error;
       }
     };
+/////
+
+
+
     // Función de actualización
-const updateData = async (id, updatedData) => {
+const updateData = async (updatedData,id=null) => {
   dispatch({ type: ACTIONS.MAKE_REQUEST });
+  console.log(updatedData)
   try {
-    const response = await fetch(`${urlBase}/videos/${id}`, {
+    const response = await fetch(`${urlJsonBin}${tokenVideo}`, {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-Master-Key': key,
+        'X-Bin-Versioning': 'false'
       },
-      body: JSON.stringify(updatedData)
+      body: JSON.stringify({videos:updatedData})
     });
-    const data = await response.json();
-    dispatch({ type: ACTIONS.UPDATE_DATA, payload: { id, videos:data } });
+    // const data = await response.json();
+    // dispatch({ type: ACTIONS.UPDATE_DATA, payload: { id, videos:data } });
     getData()
     dispatch({ type: ACTIONS.SUCCESS });
-    return data;
+    // return data;
   } catch (error) {
     dispatch({ type: ACTIONS.ERROR, payload: { error } });
     throw error;
@@ -150,10 +165,15 @@ const updateData = async (id, updatedData) => {
     const deleteData = async (id) => {
       dispatch({ type: ACTIONS.MAKE_REQUEST });
       try {
-        await fetch(`${urlBase}/videos/${id}`, {
-          method: 'DELETE'
+        await fetch(`${urlJsonBin}${tokenVideo}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': key,
+            // 'X-Bin-Versioning': 'false'
+          },
         });
-        dispatch({ type: ACTIONS.REMOVE_DATA, payload: { id } });
+        // dispatch({ type: ACTIONS.REMOVE_DATA, payload: { id } });
         getData()
         dispatch({ type: ACTIONS.SUCCESS });
       } catch (error) {
@@ -163,12 +183,16 @@ const updateData = async (id, updatedData) => {
     };
   const [category, setCategory] = useState([]);
    
-    const categoria = () => {
+    const getCategoria = async() => {
     try{
-
-      fetch(`${urlBase}/categoria`)
-        .then((response) => response.json())
-        .then((data) => setCategory(data));
+      const response = await fetch(`${urlJsonBin}${tokenCategoria}`, {
+        method: 'GET',
+        headers: {
+          'X-Master-Key': key
+        }
+      });
+      const data = await response.json();
+      setCategory(data.record.categoria);
     }catch(error){
     console.error("Error en la parte de categoria: ",error)
     }
@@ -178,7 +202,7 @@ const updateData = async (id, updatedData) => {
   useEffect(()=>{
     getData()
     // getData('https://alura-cinema-api-five.vercel.app/videos')
-    categoria();
+    getCategoria();
     
   },[])   
 
