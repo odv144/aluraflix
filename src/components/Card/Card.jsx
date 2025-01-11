@@ -118,9 +118,19 @@ export const CardContainer = ({ categoria, color, videos }) => {
                       // background={url({video.imagen}) lightgray 50% / cover no-repeat}
                       boxShadow={`0px 0px 17px 8px ${color} inset`}
                     >
-                      {/* <Stack align={"center"} pt="5px">
-                        <Text>{video.titulo}</Text>
-                      </Stack> */}
+                      <Flex position={'absolute'}
+                       top='10px' align={"center"}
+                        px="15px"
+                        borderRadius={'15px'}
+                        bg='rgba(55, 55, 55, 0.66)'
+                        >
+                        <Text fontSize={'1.5em'}
+                        fontWeight={900}
+                        color={'yellow'}
+                        px='5px'
+                        textShadow={'5px 5px 5px white'}
+                        >{video.titulo}</Text>
+                      </Flex>
                       <CardBody
                         w="460px"
                         h="260px"

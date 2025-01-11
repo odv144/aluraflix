@@ -101,7 +101,7 @@ export const Nuevo = ({ fondo = "#333", dato = "", cerrar }) => {
       navigate("/");
     } else {
       try {
-        await updateData(dato.id, formData);
+        await updateData(formData,dato.id);
       } catch (error) {
         console.error("error al enviar:", error);
       }
